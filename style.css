@@ -5,6 +5,35 @@ body {
   scroll-behavior: smooth;
 }
 
+
+.container {
+  width: 100%;
+  height: 100%;
+  --s: 82px;
+  --c1: #b2b2b2;
+  --c2: #ffffff;
+  --c3: #d9d9d9;
+
+  --_g: var(--c3) 0 120deg, #0000 0;
+  background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
+    conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
+    conic-gradient(
+      from 60deg at calc(200% / 3),
+      var(--c3) 60deg,
+      var(--c2) 0 120deg,
+      #0000 0
+    ),
+    conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
+    linear-gradient(
+      90deg,
+      var(--c1) calc(100% / 6),
+      var(--c2) 0 50%,
+      var(--c1) 0 calc(500% / 6),
+      var(--c2) 0
+    );
+  background-size: calc(1.732 * var(--s)) var(--s);
+}
+
 header {
   background-color: #222;
   color: #ffffff;
@@ -20,9 +49,199 @@ nav ul {
   gap: 1rem;
 }
 
+
 nav a {
   color: #fff;
   text-decoration: none;
+  position: relative;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+nav a:active {
+  animation: glow-click 0.4s ease;
+}
+
+@keyframes glow-click {
+  0% {
+    box-shadow: 0 0 0px white;
+    text-shadow: 0 0 0px white;
+  }
+  50% {
+    box-shadow: 0 0 10px 4px white;
+    text-shadow: 0 0 10px white;
+  }
+  100% {
+    box-shadow: 0 0 0px white;
+    text-shadow: 0 0 0px white;
+  }
+}
+#about {
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2); /* soft gradient */
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 2rem 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+  color: #222;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#about p,
+#about ul {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+#about ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+#about .highlightable {
+  transition: background-color 0.6s ease;
+}
+
+#about.highlight .highlightable {
+  background-color: #fffa90; /* light yellow */
+  border-radius: 6px;
+  padding: 4px;
+}
+#skills {
+  background: linear-gradient(to right, #e0f7fa, #ffffff); /* light blue gradient */
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#skills h2 {
+  color: #00796b;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+#skills li {
+  background-color: #ffffff;
+  margin-bottom: 0.8rem;
+  padding: 10px 15px;
+  border-left: 5px solid #00796b;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+#skills li:hover {
+  background-color: #b2dfdb; /* highlight on hover */
+}
+.section-box {
+  background: linear-gradient(to right, #f1f9ff, #ffffff); /* light blue gradient */
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+}
+.project ul li {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  border-left: 4px solid #1976d2;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.project ul li:hover {
+  background-color: #e3f2fd;
+}
+.experience ul li {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  border-left: 4px solid #1976d2;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.experience ul li:hover {
+  background-color: #e3f2fd;
+}
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  padding: 0.6rem;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+form button {
+  padding: 0.6rem 1.2rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #1565c0;
+}
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-image {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.contact-image img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+form {
+  flex: 1;
+  min-width: 280px;
 }
 
 section {
@@ -62,12 +281,13 @@ margin: 0 10px;
 
 #hero {
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: #e8e7e7;
+  
 }
 
 .hero-content {
   display: flex;
-  
+ 
   flex-wrap: wrap; 
 }
 
@@ -77,21 +297,164 @@ margin: 0 10px;
   margin-left: 40px;
   margin-top: 50px;
 }
-
-.photo {
-  max-width: 30%;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
- 
+/* From Uiverse.io by wilsondesouza */ 
+ul {
+  list-style: none;
 }
 
-.profile-img {
-  width: 280px; 
-  height: 280px;
-  
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-   object-fit: contain;
-  border: 1.5px solid #ffffff;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+.example-2 .icon-content a:hover {
+  color: white;
+}
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+  background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+  background-color: #24262a;
+}
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+.example-2 .icon-content a[data-social="mail"] .filled,
+.example-2 .icon-content a[data-social="mail"] ~ .tooltip {
+  background-color: #d93025; /* Gmail-like red */
+}
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+
+
+.hexagon {
+  width: 180px;
+  height: 180px; /* height = width * 0.866 for hexagon proportion */
+  
+  align-items: start;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+  background-color: #fff;
+
+  /* animation setup */
+  opacity: 0;
+  transform: scale(3) translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.hexagon.reveal {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.hexagon img.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* From Uiverse.io by csemszepp */ 
+.container {
+  width: 100%;
+  height: 100%;
+  --s: 200px; /* control the size */
+  --c1: #1d1d1d;
+  --c2: #4e4f51;
+  --c3: #3c3c3c;
+
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 180deg
+      )
+      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 180deg
+    );
+  background-size: var(--s) calc(var(--s) * 0.577);
 }
 
